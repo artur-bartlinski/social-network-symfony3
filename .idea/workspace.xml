@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="e6b9291d-5103-4fef-8cb5-20bad9e8242b" name="Default" comment="" />
+=======
+    <list default="true" id="e6b9291d-5103-4fef-8cb5-20bad9e8242b" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/home/index.html.twig" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/HomeController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
+    </list>
+>>>>>>> e00982b8f858225ac1b04dbaab1c694c44f3393a
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,7 +25,11 @@
         <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="253">
+<<<<<<< HEAD
               <caret line="11" column="52" lean-forward="false" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
+=======
+              <caret line="11" column="52" lean-forward="true" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
+>>>>>>> e00982b8f858225ac1b04dbaab1c694c44f3393a
               <folding />
             </state>
           </provider>
@@ -175,12 +188,20 @@
       <workItem from="1508182285694" duration="10627000" />
       <workItem from="1508824073014" duration="27819000" />
       <workItem from="1509524540371" duration="35320000" />
+<<<<<<< HEAD
       <workItem from="1509635563447" duration="9893000" />
+=======
+      <workItem from="1509635563447" duration="9297000" />
+>>>>>>> e00982b8f858225ac1b04dbaab1c694c44f3393a
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="83659000" />
+=======
+    <option name="totallyTimeSpent" value="83063000" />
+>>>>>>> e00982b8f858225ac1b04dbaab1c694c44f3393a
   </component>
   <component name="ToolWindowManager">
     <frame x="1322" y="-11" width="1559" height="912" extended-state="7" />
@@ -445,7 +466,11 @@
         <state relative-caret-position="368">
           <caret line="16" column="11" lean-forward="true" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
           <folding>
+<<<<<<< HEAD
             <element signature="e#40#97#0#PHP" expanded="false" />
+=======
+            <element signature="e#40#97#0#PHP" expanded="true" />
+>>>>>>> e00982b8f858225ac1b04dbaab1c694c44f3393a
           </folding>
         </state>
       </provider>
@@ -503,7 +528,11 @@
         <state relative-caret-position="161">
           <caret line="7" column="12" lean-forward="true" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
           <folding>
+<<<<<<< HEAD
             <element signature="e#228#235#1#HTML" expanded="false" />
+=======
+            <element signature="e#228#235#1#HTML" expanded="true" />
+>>>>>>> e00982b8f858225ac1b04dbaab1c694c44f3393a
           </folding>
         </state>
       </provider>
@@ -511,7 +540,11 @@
     <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
+<<<<<<< HEAD
           <caret line="11" column="52" lean-forward="false" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
+=======
+          <caret line="11" column="52" lean-forward="true" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
+>>>>>>> e00982b8f858225ac1b04dbaab1c694c44f3393a
           <folding />
         </state>
       </provider>
