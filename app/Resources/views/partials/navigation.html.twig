@@ -5,7 +5,7 @@
         </div>
         <div class="collapse navbar-collapse">
 
-            {# TODO: if user logged in #}
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
             <ul class="nav navbar-nav">
                 <li><a href="{{ path('homepage') }}">Timeline</a></li>
                 <li><a href="#">Friends</a></li>
@@ -16,18 +16,17 @@
                 </div>
                 <button type="submit" class="btn btn-default">Search</button>
             </form>
-            {# end if #}
+            {% endif %}
 
             <ul class="nav navbar-nav navbar-right">
-
-                {# TODO: if user logged in #}
-                <li><a href="#"></a></li>
-                <li><a href="#">Update profile</a></li>
-                <li><a href="#">Sign out</a></li>
-                {# else #}
-                <li><a href="{{ path('register') }}">Sign up</a></li>
-                <li><a href="#">Sign in</a></li>
-                {# end if #}
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    <li><a href="#">{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}</a></li>
+                    <li><a href="#">Update profile</a></li>
+                    <li><a href="{{ path('fos_user_security_logout') }}">{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a></li>
+                {% else %}
+                    <li><a href="{{ path('fos_user_registration_register') }}">Register</a></li>
+                    <li><a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a></li>
+                {% endif %}
             </ul>
         </div>
     </div>
