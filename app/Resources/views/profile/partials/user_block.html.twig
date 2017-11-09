@@ -1,0 +1,9 @@
+<div class="media">
+    <a href="#" class="pull-left">
+        <img src="" alt="{{ user.getUsername() }}" class="media-object">
+    </a>
+    <div class="media-body">
+        <h4 class="media-heading"><a href="#">{{ user.getUsername() }}</a></h4>
+        <p>Last active: {{ user.getLastLogin()|date }}</p>
+    </div>
+</div>
