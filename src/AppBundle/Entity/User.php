@@ -28,4 +28,9 @@ class User extends BaseUser
     {
         parent::__construct();
     }
+
+    public function getAvatarUrl()
+    {
+        return 'https://www.gravatar.com/avatar/' . md5($this->getEmail()) . '?d=mm&s=40';
+    }
 }
