@@ -4,6 +4,8 @@
     </a>
     <div class="media-body">
         <h4 class="media-heading"><a href="{{ path('user_profile', {'username': user}) }}">{{ user.getUsername() }}</a></h4>
+        <p>{{ user.getFirstName() }} {{ user.getLastName() }}</p>
+        <p>{{ user.getLocation() }}</p>
         <p>Last active: {{ user.getLastLogin()|date }}</p>
     </div>
 </div>
