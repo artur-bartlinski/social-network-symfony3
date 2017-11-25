@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Friends {% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-lg-6">
+            <h3>Your friends</h3>
+            {% if friends is empty %}
+                <p>You have no friends</p>
+            {% else %}
+                {% for user in friends %}
+                    {%  include 'profile/partials/user_block.html.twig' %}
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div class="col-lg-6">
+            <h3>Friends requests</h3>
+        </div>
+    </div>
+{% endblock %}

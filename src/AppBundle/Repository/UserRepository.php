@@ -26,7 +26,7 @@ class UserRepository extends EntityRepository
         }
     }
 
-    public function getFriendship($userId)
+    public function getFriendships($userId)
     {
         $query = $this->getEntityManager()->createQuery(
             'select f from AppBundle:Friendship f
@@ -38,5 +38,26 @@ class UserRepository extends EntityRepository
         } catch (NoResultException $e) {
             return null;
         }
+    }
+
+    public function getFriends($user)
+    {
+        $userId = $user->getId();
+        $username = $user->getUsername();
+        $friendships = $this->getFriendships($userId);
+
+        $friends = [];
+        $counter = 0;
+
+        foreach ($friendships as $friendship) {
+            if ($friendship->getFriend()->getUsername() === $username) {
+                $friends[$counter] = $friendship->getUser();
+            } else {
+                $friends[$counter] = $friendship->getFriend();
+            }
+            $counter++;
+        }
+
+        return $friends;
     }
 }

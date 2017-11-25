@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Friendship;
 use AppBundle\Entity\User;
 use AppBundle\Form\UserType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -18,21 +19,9 @@ class ProfileController extends Controller
     {
         $repository = $this->getDoctrine()->getRepository(User::class);
 
-        $user = $this->getUserByUsername($username);
-        $userId = $user->getId();
-        $friendships = $repository->getFriendship($userId);
+        $user = $repository->findOneByUsername($username);
 
-        $friends = [];
-        $counter = 0;
-
-        foreach ($friendships as $friendship) {
-            if ($friendship->getFriend()->getUsername() === $username) {
-                $friends[$counter] = $friendship->getUser();
-            } else {
-                $friends[$counter] = $friendship->getFriend();
-            }
-            $counter++;
-        }
+        $friends = $repository->getFriends($user);
 
         return $this->render('profile/get_profile.html.twig', [
             'user' => $user,
@@ -79,17 +68,5 @@ class ProfileController extends Controller
         return $this->redirectToRoute('user_profile', [
             'username' => $user->getUsername()
         ]);
-    }
-
-    public function getUserByUsername($username)
-    {
-        $repository = $this->getDoctrine()->getRepository(User::class);
-        $user = $repository->findOneByUsername($username);
-
-        if (!$user) {
-            throw $this->createNotFoundException('User does not exist!');
-        }
-
-        return $user;
     }
 }
