@@ -1,5 +1,5 @@
 <div class="media">
-    <a href="{{ path('user_profile', {'username': user}) }}" class="pull-left">
+    <a href="{{ path('user_profile', {'username': user.getUsername() }) }}" class="pull-left">
         <img src="{{ user.getAvatarUrl() }}" alt="{{ user.getUsername() }}" class="media-object">
     </a>
     <div class="media-body">

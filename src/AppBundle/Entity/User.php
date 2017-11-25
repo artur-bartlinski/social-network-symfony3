@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -60,9 +61,22 @@ class User extends BaseUser
      */
     private $location;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Friendship", mappedBy="friend")
+     */
+    private $friendsWithMe;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Friendship", mappedBy="user")
+     */
+    private $myFriends;
+
     public function __construct()
     {
         parent::__construct();
+
+        $this->friendsWithMe = new ArrayCollection();
+        $this->myFriends = new ArrayCollection();
     }
 
     /**
@@ -111,6 +125,38 @@ class User extends BaseUser
     public function setLocation($location)
     {
         $this->location = $location;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFriendsWithMe()
+    {
+        return $this->friendsWithMe;
+    }
+
+    /**
+     * @param mixed $friendsWithMe
+     */
+    public function setFriendsWithMe($friendsWithMe)
+    {
+        $this->friendsWithMe = $friendsWithMe;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMyFriends()
+    {
+        return $this->myFriends;
+    }
+
+    /**
+     * @param mixed $myFriends
+     */
+    public function setMyFriends($myFriends)
+    {
+        $this->myFriends = $myFriends;
     }
 
     public function getAvatarUrl()

@@ -3,6 +3,7 @@
 namespace AppBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\NoResultException;
 
 /**
  * UserRepository
@@ -18,8 +19,24 @@ class UserRepository extends EntityRepository
             ->setParameter('username', $userName)
             ->getQuery();
 
-        $results = $query->getResult();
+        try {
+            return $query->getResult();
+        } catch (NoResultException $e) {
+            return null;
+        }
+    }
 
-        return $results;
+    public function getFriendship($userId)
+    {
+        $query = $this->getEntityManager()->createQuery(
+            'select f from AppBundle:Friendship f
+            where ((f.user = :id or f.friend = :id) and f.isAccepted = 1)'
+        )->setParameter('id', $userId);
+
+        try {
+            return $query->getResult();
+        } catch (NoResultException $e) {
+            return null;
+        }
     }
 }

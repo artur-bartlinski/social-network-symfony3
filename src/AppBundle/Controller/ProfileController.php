@@ -16,10 +16,27 @@ class ProfileController extends Controller
      */
     public function getProfile($username)
     {
+        $repository = $this->getDoctrine()->getRepository(User::class);
+
         $user = $this->getUserByUsername($username);
+        $userId = $user->getId();
+        $friendships = $repository->getFriendship($userId);
+
+        $friends = [];
+        $counter = 0;
+
+        foreach ($friendships as $friendship) {
+            if ($friendship->getFriend()->getUsername() === $username) {
+                $friends[$counter] = $friendship->getUser();
+            } else {
+                $friends[$counter] = $friendship->getFriend();
+            }
+            $counter++;
+        }
 
         return $this->render('profile/get_profile.html.twig', [
-            'user' => $user
+            'user' => $user,
+            'friends' => $friends
         ]);
     }
 
